@@ -3,6 +3,9 @@ plugins {
     id("com.diffplug.spotless") version "6.21.0"
 }
 
+version = project.properties["version"].toString()
+group = project.properties["maven_group"].toString()
+
 repositories {
     mavenCentral()
 }
@@ -17,6 +20,17 @@ tasks.test {
     useJUnitPlatform()
 }
 
+
+task<Jar>("javadocJar") {
+    archiveClassifier = "javadoc"
+    from(tasks.javadoc)
+}
+
+tasks.javadoc {
+    excludes += "**/test/**"
+}
+
+
 spotless {
     java {
         palantirJavaFormat()
@@ -24,8 +38,7 @@ spotless {
     }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+java.toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
 }
+
