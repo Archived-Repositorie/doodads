@@ -20,7 +20,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-
 task<Jar>("javadocJar") {
     archiveClassifier = "javadoc"
     from(tasks.javadoc)
