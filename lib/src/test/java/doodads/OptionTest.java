@@ -6,7 +6,6 @@ package doodads;
 import static org.junit.jupiter.api.Assertions.*;
 
 import io.github.justfoxx.doodads.Option;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
