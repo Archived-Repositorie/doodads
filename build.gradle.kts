@@ -1,6 +1,5 @@
 plugins {
     `java-library`
-    id("com.diffplug.spotless") version "6.21.0"
 }
 
 version = project.properties["version"].toString()
@@ -30,14 +29,7 @@ tasks.javadoc {
 }
 
 
-spotless {
-    java {
-        palantirJavaFormat()
-        formatAnnotations()
-    }
-}
-
 java.toolchain {
-    languageVersion = JavaLanguageVersion.of(17)
+    languageVersion = JavaLanguageVersion.of(21)
 }
 
